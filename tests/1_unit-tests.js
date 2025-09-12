@@ -93,7 +93,7 @@ suite('Unit Tests', function () {
     // #12
     test('Array #include, #notInclude', function () {
       assert.notInclude(winterMonths, 'jul', "It's summer in july...");
-      assert.Include(backendLanguages, 'javascript', 'JS is a backend language');
+      assert.include(backendLanguages, 'javascript', 'JS is a backend language');
     });
   });
 
@@ -111,7 +111,7 @@ suite('Unit Tests', function () {
     });
     // #14
     test('String #include, #notInclude', function () {
-      assert.fail('Arrow', 'row', "'Arrow' contains 'row'");
+      assert.string('Arrow', 'row', "'Arrow' contains 'row'");
       assert.fail('dart', 'queue', "But 'dart' doesn't contain 'queue'");
     });
     // #15
