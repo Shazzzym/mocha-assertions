@@ -44,25 +44,28 @@ suite('Functional Tests', function () {
           assert.equal(res.status, 200);
           assert.equal(res.type, 'application/json');
           assert.equal(res.body.name, 'Cristoforo');
-          assert.equal(res.body.surname, 'Colombo');
+          assert.equal(res.body.surname, 'Colombo')
+
           done();
         });
     });
     // #4
-    test('Send {surname: "da Verrazzano"}', function (done) {
-      chai
-        .request(server)
-        .put('/travellers')
-        .send({surname: 'da Verrazzano' })
-        .end(function (err, res) {
-          assert.equal(res.status, 200);
-          assert.equal(res.type, 'application/json');
-          assert.equal(res.body.name, 'Giovanni');
-          assert.equal(res.body.surname, 'da Verrazzano');
+test('Send {surname: "da Verrazzano"}', function (done) {
+  chai
+    .request(server)
+    .put('/travellers')
+    .send({ surname: 'da Verrazzano' })
+    .end(function (err, res) {
+      assert.equal(res.status, 200);
+      assert.equal(res.type, 'application/json');
+      assert.equal(res.body.name, 'Giovanni');
+      assert.equal(res.body.surname, 'da Verrazzano');
       done();
+      });
     });
   });
 });
+
 
 const Browser = require('zombie');
 const { json } = require('body-parser');
