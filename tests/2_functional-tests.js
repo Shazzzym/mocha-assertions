@@ -39,10 +39,12 @@ suite('Functional Tests', function () {
         .request(server)
         .keepOpen()
         .put('/travellers')
-
+        .send({surname: "Colombo"})
         .end(function (err, res) {
-          assert.fail();
-
+          assert.equal(res.status, 200);
+          assert.equal(res.type, 'application/json');
+          assert.equal(res.body.name, 'Cristoforo');
+          assert.equal(res.body.surname, 'Colombo');
           done();
         });
     });
@@ -56,6 +58,7 @@ suite('Functional Tests', function () {
 });
 
 const Browser = require('zombie');
+const { json } = require('body-parser');
 
 suite('Functional Tests with Zombie.js', function () {
   this.timeout(5000);
