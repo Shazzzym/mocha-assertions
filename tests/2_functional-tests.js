@@ -68,10 +68,16 @@ test('Send {surname: "da Verrazzano"}', function (done) {
 
 
 const Browser = require('zombie');
+Browser.site = 'http://0.0.0.0:3000';
 const { json } = require('body-parser');
 
+const browser = new Browser();
 suite('Functional Tests with Zombie.js', function () {
   this.timeout(5000);
+
+  suiteSetup(function(done) {
+  return browser.visit('/', done);
+});
 
 
 
