@@ -61,20 +61,21 @@ test('Send {surname: "da Verrazzano"}', function (done) {
       assert.equal(res.body.name, 'Giovanni');
       assert.equal(res.body.surname, 'da Verrazzano');
       done();
-      });
+    });
     });
   });
 });
 
 
 const Browser = require('zombie');
-Browser.site = 'http://0.0.0.0:3000';
+Browser.site = 'http://0.0.0.0:3000'; // Your URL here
+const { json } = require('body-parser');
 
 const browser = new Browser();
 suite('Functional Tests with Zombie.js', function () {
   this.timeout(5000);
 
-  suiteSetup(function(done) {
+suiteSetup(function(done) {
   return browser.visit('/', done);
 });
 
