@@ -107,8 +107,8 @@ suiteSetup(function(done) {
           browser.assert.text('span#surname', 'Vespucci');
           browser.assert.elements('span#dates', 1);
       done();
+        });
+      });
     });
-  });
-});
   });
 }); 
