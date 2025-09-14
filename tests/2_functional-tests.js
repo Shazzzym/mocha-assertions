@@ -68,7 +68,7 @@ test('Send {surname: "da Verrazzano"}', function (done) {
 
 
 const Browser = require('zombie');
-Browser.site = 'http://0.0.0.0:3000'; // Your URL here
+Browser.site = 'https://mocha-assertions.onrender.com'; // Your URL here
 const { json } = require('body-parser');
 
 const browser = new Browser();
